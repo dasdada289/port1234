@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Sub's Modding Portfolio</title>
 
-<!-- Stylish, professional fonts -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;600&display=swap" rel="stylesheet">
 
 <style>
@@ -17,10 +17,15 @@ body {
   overflow-x: hidden;
   position: relative;
   min-height: 100vh;
-  background: #0d0d0d; /* fallback background */
+  background: #0d0d0d;
+  background-image: 
+    linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.8)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover, cover;
+  background-blend-mode: overlay;
 }
 
-/* Rain container */
+/* Rain container remains */
 .rain-container {
   position: fixed;
   top: 0; left: 0;
@@ -31,13 +36,11 @@ body {
   overflow: hidden;
 }
 
-/* Raindrops styled in red */
 .raindrop {
   position: absolute;
   bottom: 100%;
   width: 2px;
   height: var(--height);
-  /* Changed to bright red */
   background: linear-gradient(to bottom, #ff0000, transparent);
   opacity: 0.5;
   border-radius: 1px;
@@ -46,32 +49,30 @@ body {
   animation-duration: var(--duration);
 }
 
-/* Falling animation */
 @keyframes fall {
   0% { transform: translateY(0) rotate(var(--rotation)); opacity: 0.5; }
   100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
 }
 
-/* Header style with dark red as primary color */
+/* Header styles with glow */
 h1 {
   font-family: 'Poppins', sans-serif;
   font-size: 3.8em;
   text-align: center;
   margin: 0 0 20px;
   padding: 50px 20px 20px;
-  /* Dark red primary color */
   color: #8B0000;
   letter-spacing: 2px;
-  text-shadow: 2px 2px 12px rgba(0,0,0,0.9);
   animation: glow 2s infinite alternate;
+  text-shadow: 0 0 10px #8B0000, 2px 2px 12px rgba(0,0,0,0.9);
 }
 
 @keyframes glow {
-  0% { text-shadow: 2px 2px 12px rgba(0,0,0,0.9); }
-  100% { text-shadow: 4px 4px 20px rgba(0,0,0,0.7); }
+  0% { text-shadow: 0 0 10px #8B0000, 2px 2px 12px rgba(0,0,0,0.9); }
+  100% { text-shadow: 0 0 20px #8B0000, 4px 4px 20px rgba(0,0,0,0.7); }
 }
 
-/* Content box styling */
+/* Content styles with torn paper effect */
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -92,13 +93,27 @@ h1 {
   margin-bottom: 50px;
   transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
+  position: relative;
 }
-.content-box:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.8);
+.content-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0,0,0,0.2) 10px,
+    rgba(0,0,0,0.2) 20px
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+.content-box > * {
+  position: relative;
+  z-index: 1;
 }
 
-/* Headings styling with dark red accent */
 h2 {
   font-family: 'Raleway', sans-serif;
   font-size: 2em;
@@ -108,13 +123,14 @@ h2 {
   color: #8B0000;
   position: relative;
   display: inline-block;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 h2::after {
   content: "";
   display: block;
   height: 4px;
   width: 60px;
-  background-color: #A0522D; /* dark orange-brown for contrast */
+  background-color: #A0522D;
   margin-top: 10px;
   border-radius: 2px;
   animation: pulseLine 2s infinite;
@@ -124,7 +140,6 @@ h2::after {
   50% { opacity: 0.4; }
 }
 
-/* List styles */
 ul {
   list-style: none;
   padding: 0;
@@ -137,6 +152,7 @@ li {
   position: relative;
   font-size: 1.1em;
   line-height: 1.5;
+  color: #ccc;
 }
 li::before {
   content: "•";
@@ -182,7 +198,7 @@ a:hover {
   transform: scale(1.02);
 }
 
-/* Footer style */
+/* Footer styles */
 footer {
   text-align: center;
   padding: 40px 20px;
@@ -192,6 +208,20 @@ footer {
   box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
   backdrop-filter: blur(4px);
   margin-top: 50px;
+  position: relative;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1549887534-7c680844a41d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+}
+footer p {
+  position: relative;
+  z-index: 1;
 }
 
 /* Responsive adjustments */
@@ -200,6 +230,8 @@ footer {
   .content-box { padding: 20px; }
   h2 { font-size: 1.5em; }
 }
+
+/* Remove all image styles and embedded image containers, since images are now omitted */
 </style>
 </head>
 <body>
@@ -260,14 +292,13 @@ footer {
           <li><a href="https://discord.gg/ZS9W24rVs8" target="_blank">Type Rune</a></li>
         </ul>
       </div>
-
-      <!-- Added note -->
+      <!-- Note -->
       <p style="margin-top: 20px; font-size: 1.1em; color: #ccc; font-style: italic;">
         This is not the discord I did all my work on. My old discord got disabled and I just didn't take the effort to get it back, so please be considerate of that.
       </p>
     </section>
 
-    <!-- Why work with me -->
+    <!-- Why Work With Me -->
     <section id="why-work-with-me">
       <h2>Why Work With Me?</h2>
       <ul>
@@ -303,38 +334,22 @@ footer {
   </div>
 </div>
 
-<!-- Script to generate very heavy, seamless red rain -->
+<!-- Script for rain -->
 <script>
-// Generate very heavy red rain with smooth looping
 const rainContainer = document.getElementById('rain');
 const numberOfDrops = 1000;
-
 for (let i = 0; i < numberOfDrops; i++) {
   const drop = document.createElement('div');
   drop.className = 'raindrop';
-
-  // Random position
   drop.style.left = Math.random() * 100 + '%';
-
-  // Random duration between 0.3s and 0.8s
   const duration = (0.3 + Math.random() * 0.5).toFixed(2) + 's';
   drop.style.setProperty('--duration', duration);
-
-  // Random height
   const height = (10 + Math.random() * 15).toFixed(0) + 'px';
   drop.style.setProperty('--height', height);
-
-  // Random rotation
   const rotation = (Math.random() * 30 - 15).toFixed(2) + 'deg';
   drop.style.setProperty('--rotation', rotation);
-
-  // Random delay
   drop.style.animationDelay = (Math.random() * 2).toFixed(2) + 's';
-
-  // Opacity variation
   drop.style.opacity = (0.3 + Math.random() * 0.2).toFixed(2);
-
-  // Change the color to red (already in CSS)
   rainContainer.appendChild(drop);
 }
 </script>
