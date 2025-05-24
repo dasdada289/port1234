@@ -213,6 +213,7 @@ a:hover {
 
 /* Footer styles with background overlay and rounded corners */
 footer {
+  position: relative;
   text-align: center;
   padding: 40px 20px;
   font-size: 1em;
@@ -221,7 +222,6 @@ footer {
   box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
   backdrop-filter: blur(4px);
   margin-top: 50px;
-  position: relative;
   border-radius: 20px;
 }
 footer::before {
@@ -242,7 +242,7 @@ footer p {
 /* Buttons for toggle sections with vibrant color and rounded shape */
 .toggle-btn {
   display: inline-block;
-  background-color: #FF6347; /* tomato color */
+  background-color: #b22222; /* deep red (firebrick) */
   color: #fff;
   padding: 10px 20px;
   margin: 10px 0;
@@ -254,25 +254,24 @@ footer p {
   transition: background-color 0.3s, transform 0.2s;
 }
 .toggle-btn:hover {
-  background-color: #FF4500; /* orange-red */
+  background-color: #8b0000; /* darkred hover */
   transform: scale(1.05);
 }
 
-/* Make all toggle content sections scrollable with fixed height */
+/* Make all toggle content sections hidden by default, with scrollable overflow */
 .toggle-content {
-  max-height: 600px; /* <-- added for scrolling */
-  overflow-y: auto;  /* <-- added for scrolling */
-  overflow-x: hidden;
+  max-height: 0;
+  overflow: hidden;
   transition: max-height 0.5s ease, padding 0.3s;
-  padding: 20px;
+  padding: 0 20px;
   margin-bottom: 20px;
   border-radius: 20px;
   background: rgba(255,255,255,0.1);
 }
 .toggle-content.show {
-  /* Keep max-height for expanded view if needed, optional here since fixed height for scroll */
-  max-height: 600px;
+  max-height: 600px; /* fixed height for scroll if content exceeds */
   padding: 20px;
+  overflow-y: auto; /* enable scrolling */
 }
 
 /* Responsive adjustments */
@@ -361,12 +360,13 @@ footer p {
       </ul>
     </div>
 
-    <!-- More content... -->
+    <!-- More projects -->
     <div class="project">
       <div class="project-title">Kenshin [In dev]</div>
       <p><strong>Discord:</strong> <a href="https://discord.gg/NWJ6D895E8" target="_blank">https://discord.gg/NWJ6D895E8</a></p>
     </div>
 
+    <!-- Current Projects -->
     <h2>Current Projects</h2>
     <div class="project">
       <div class="project-title"><a href="https://discord.gg/CursedNen" target="_blank">Cursed Nen</a></div>
@@ -391,7 +391,7 @@ footer p {
       <li>Passionate and dedicated modder with a growing portfolio</li>
       <li>Experience working with large gaming communities</li>
       <li>Interested in transitioning into game development and creating original titles</li>
-      <li>Open to collaborations and investment opportunities</li>
+      <li>Opens to collaborations and investment opportunities</li>
     </ul>
   </section>
 </div>
@@ -414,7 +414,7 @@ footer p {
 </footer>
 
 <script>
-/* Toggle sections logic */
+// Toggle sections logic
 document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
@@ -423,7 +423,7 @@ document.querySelectorAll('.toggle-btn').forEach(btn => {
   });
 });
 
-/* Font toggle logic */
+// Font toggle logic
 const fontBtn = document.getElementById('fontToggle');
 fontBtn.addEventListener('click', () => {
   const currentFont = document.getElementById('fontLink').href;
