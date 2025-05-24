@@ -258,18 +258,20 @@ footer p {
   transform: scale(1.05);
 }
 
-/* Container for toggle content, hidden by default */
+/* Make all toggle content sections scrollable with fixed height */
 .toggle-content {
-  max-height: 0;
-  overflow: hidden;
+  max-height: 600px; /* <-- added for scrolling */
+  overflow-y: auto;  /* <-- added for scrolling */
+  overflow-x: hidden;
   transition: max-height 0.5s ease, padding 0.3s;
-  padding: 0 20px;
+  padding: 20px;
   margin-bottom: 20px;
   border-radius: 20px;
   background: rgba(255,255,255,0.1);
 }
 .toggle-content.show {
-  max-height: 1000px; /* large enough to show content */
+  /* Keep max-height for expanded view if needed, optional here since fixed height for scroll */
+  max-height: 600px;
   padding: 20px;
 }
 
@@ -297,7 +299,7 @@ footer p {
 
     <h1>Sub's Modding Portfolio</h1>
 
-    <!-- Toggle sections for each main area -->
+    <!-- Toggle buttons for sections -->
 <div style="text-align: center;">
   <button class="toggle-btn" data-target="aboutContent">About Me</button>
   <button class="toggle-btn" data-target="skillsContent">Skills & Expertise</button>
@@ -320,7 +322,7 @@ footer p {
       <li>Participated in mods reaching hundreds of millions of players</li>
       <li>Worked on various "Type Soul" copies, including high-traffic 1s</li>
     </ul>
-    <p style="font-weight: bold; margin-top: 20px;">Note: I no longer work for any of the projects mentioned.</p>
+    <p style="font-weight: bold; margin-top: 20px;">Note: I no longer work for any of the projects mentioned below.</p>
   </section>
 </div>
 
@@ -359,13 +361,12 @@ footer p {
       </ul>
     </div>
 
-    <!-- New Kenshin Project -->
+    <!-- More content... -->
     <div class="project">
       <div class="project-title">Kenshin [In dev]</div>
       <p><strong>Discord:</strong> <a href="https://discord.gg/NWJ6D895E8" target="_blank">https://discord.gg/NWJ6D895E8</a></p>
     </div>
 
-    <!-- Current Projects -->
     <h2>Current Projects</h2>
     <div class="project">
       <div class="project-title"><a href="https://discord.gg/CursedNen" target="_blank">Cursed Nen</a></div>
@@ -376,7 +377,6 @@ footer p {
       <p>Experience intense battles (still in dev)</p>
     </div>
 
-    <!-- Note -->
     <p style="margin-top: 20px; font-size: 1.1em; color: #ccc; font-style: italic;">
       This is not the discord I did all my work on. My old discord got disabled and I just didn't take the effort to get it back, so please be considerate of that.
     </p>
@@ -396,7 +396,7 @@ footer p {
   </section>
 </div>
 
-<!-- Future Goals (assuming continuation) -->
+<!-- Future Goals -->
 <div id="futureContent" class="toggle-content">
   <section id="future">
     <h2>Future Goals</h2>
