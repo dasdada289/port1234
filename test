@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Sub's Modding Portfolio</title>
+
+<!-- Fonts: default and toggle option for a cool font -->
+<link id="fontLink" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;600&display=swap" rel="stylesheet" />
+
+<style>
+/* Reset and base styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', 'Raleway', sans-serif;
+  color: #f0f0f0;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  background: #0d0d0d;
+  background-image: 
+    linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.8)),
+    url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  background-size: cover, cover;
+  background-blend-mode: overlay;
+  transition: font-family 0.5s ease;
+}
+
+/* Rain container remains */
+.rain-container {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Raindrop styles */
+.raindrop {
+  position: absolute;
+  bottom: 100%;
+  width: 2px;
+  height: var(--height);
+  background: linear-gradient(to bottom, #ff0000, transparent);
+  opacity: 0.5;
+  border-radius: 1px;
+  transform: translateY(0) rotate(var(--rotation));
+  animation: fall linear infinite;
+  animation-duration: var(--duration);
+}
+
+@keyframes fall {
+  0% { transform: translateY(0) rotate(var(--rotation)); opacity: 0.5; }
+  100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
+}
+
+/* Header styles with glow */
+h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.8em;
+  text-align: center;
+  margin: 0 0 20px;
+  padding: 50px 20px 20px;
+  color: #8B0000;
+  letter-spacing: 2px;
+  animation: glow 2s infinite alternate;
+  text-shadow: 0 0 10px #8B0000, 2px 2px 12px rgba(0,0,0,0.9);
+}
+
+/* Glow animation for header */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #8B0000, 2px 2px 12px rgba(0,0,0,0.9); }
+  100% { text-shadow: 0 0 20px #8B0000, 4px 4px 20px rgba(0,0,0,0.7); }
+}
+
+/* Content wrapper styles */
+.content-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* Content box with rounded edges and colorful accents */
+.content-box {
+  max-width: 950px;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 30px;
+  padding: 30px 40px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  margin-top: 20px;
+  margin-bottom: 50px;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  position: relative;
+}
+
+/* Torn paper effect overlay */
+.content-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(0,0,0,0.2) 10px,
+    rgba(0,0,0,0.2) 20px
+  );
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 30px;
+}
+
+/* Content children */
+.content-box > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Section headers with colorful styles */
+h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2em;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #8B0000;
+  padding-bottom: 8px;
+  color: #8B0000;
+  position: relative;
+  display: inline-block;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+}
+
+/* Decorative line after headers with animation */
+h2::after {
+  content: "";
+  display: block;
+  height: 4px;
+  width: 60px;
+  background-color: #A0522D;
+  margin-top: 10px;
+  border-radius: 2px;
+  animation: pulseLine 2s infinite;
+}
+@keyframes pulseLine {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* List styles */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+li {
+  margin-bottom: 12px;
+  padding-left: 20px;
+  position: relative;
+  font-size: 1.1em;
+  line-height: 1.5;
+  color: #ccc;
+}
+li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5em;
+  color: #8B0000;
+}
+
+/* Project cards with rounded borders and hover effects */
+.project {
+  background: rgba(255,255,255,0.02);
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+}
+.project:hover {
+  background: rgba(255,255,255,0.05);
+  transform: scale(1.02);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+}
+.project-title {
+  font-weight: 700;
+  font-size: 1.4em;
+  margin-bottom: 10px;
+  color: #FF0000;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+}
+
+/* Link styles with color effects */
+a {
+  color: #FF0000;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+a:hover {
+  color: #FF6347;
+  text-shadow: 0 0 8px #FF6347;
+  transform: scale(1.02);
+}
+
+/* Footer styles with background overlay and rounded corners */
+footer {
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 1em;
+  color: #999;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+  backdrop-filter: blur(4px);
+  margin-top: 50px;
+  position: relative;
+  border-radius: 20px;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('https://images.unsplash.com/photo-1549887534-7c680844a41d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 20px;
+}
+footer p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Buttons for toggle sections with vibrant color and rounded shape */
+.toggle-btn {
+  display: inline-block;
+  background-color: #FF6347; /* tomato color */
+  color: #fff;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 600;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.toggle-btn:hover {
+  background-color: #FF4500; /* orange-red */
+  transform: scale(1.05);
+}
+
+/* Container for toggle content, hidden by default */
+.toggle-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s;
+  padding: 0 20px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.1);
+}
+.toggle-content.show {
+  max-height: 1000px; /* large enough to show content */
+  padding: 20px;
+}
+
+/* Responsive adjustments */
+@media(max-width: 600px) {
+  h1 { font-size: 3em; }
+  .content-box { padding: 20px; }
+  h2 { font-size: 1.5em; }
+}
+</style>
+</head>
+<body>
+
+<!-- Raindrops container -->
+<div class="rain-container" id="rain"></div>
+
+<!-- Toggle Font Button -->
+<div style="text-align: center; margin-top: 20px;">
+  <button class="toggle-btn" id="fontToggle">Switch Font</button>
+</div>
+
+<!-- Centered content -->
+<div class="content-wrapper">
+  <div class="content-box">
+
+    <h1>Sub's Modding Portfolio</h1>
+
+    <!-- Toggle sections for each main area -->
+<div style="text-align: center;">
+  <button class="toggle-btn" data-target="aboutContent">About Me</button>
+  <button class="toggle-btn" data-target="skillsContent">Skills & Expertise</button>
+  <button class="toggle-btn" data-target="projectsContent">Projects</button>
+  <button class="toggle-btn" data-target="whyWorkContent">Why Work With Me?</button>
+  <button class="toggle-btn" data-target="futureContent">Future Goals</button>
+</div>
+
+<!-- About Me -->
+<div id="aboutContent" class="toggle-content">
+  <section id="about">
+    <h2>About Me</h2>
+    <p><strong>Name:</strong> Sub</p>
+    <p><strong>Age:</strong> 16</p>
+    <p><strong>Experience:</strong> Been Modding since july of 2024</p>
+    <p><strong>Availability:</strong> I have a IRL job but I do this as a hobby so I got the time to do it!</p>
+    <p><strong>Career Highlights:</strong></p>
+    <ul>
+      <li>Contributed to projects with millions of visits</li>
+      <li>Participated in mods reaching hundreds of millions of players</li>
+      <li>Worked on various "Type Soul" copies, including high-traffic 1s</li>
+    </ul>
+    <p style="font-weight: bold; margin-top: 20px;">Note: I no longer work for any of the projects mentioned below.</p>
+  </section>
+</div>
+
+<!-- Skills & Expertise -->
+<div id="skillsContent" class="toggle-content">
+  <section id="skills">
+    <h2>Skills & Expertise</h2>
+    <ul>
+      <li>Game Modding & Custom Content Creation</li>
+      <li>Gameplay Adjustments & Balancing</li>
+      <li>Community Engagement & Feedback Integration</li>
+      <li>Passion for Learning Game Development</li>
+    </ul>
+  </section>
+</div>
+
+<!-- Notable Projects -->
+<div id="projectsContent" class="toggle-content">
+  <section id="projects">
+    <h2>Notable Projects</h2>
+
+    <div class="project">
+      <div class="project-title">[Grand Alfheim] (Visits: 177K)</div>
+      <p>All-around modding(retired)</p>
+      <p><strong>Discord:</strong> <a href="https://discord.gg/aspjh6vHZj" target="_blank">Join Grand Alfheim Discord</a></p>
+    </div>
+
+    <div class="project">
+      <div class="project-title">[Type Soul Clones] (Total Visits: 2.1M)</div>
+      <p>Mods for tickets, in-game features, and chat systems</p>
+      <p><strong>Discord Links:</strong></p>
+      <ul>
+        <li><a href="https://discord.com/invite/qmjyXaKUqn" target="_blank">Type War</a></li>
+        <li><a href="https://discord.gg/typecc" target="_blank">Type Ego</a></li>
+        <li><a href="https://discord.gg/ZS9W24rVs8" target="_blank">Type Rune</a></li>
+      </ul>
+    </div>
+
+    <!-- New Kenshin Project -->
+    <div class="project">
+      <div class="project-title">Kenshin [In dev]</div>
+      <p><strong>Discord:</strong> <a href="https://discord.gg/NWJ6D895E8" target="_blank">https://discord.gg/NWJ6D895E8</a></p>
+    </div>
+
+    <!-- Current Projects -->
+    <h2>Current Projects</h2>
+    <div class="project">
+      <div class="project-title"><a href="https://discord.gg/CursedNen" target="_blank">Cursed Nen</a></div>
+      <p>Embark on a dark adventure with this ongoing project.(still in dev)</p>
+    </div>
+    <div class="project">
+      <div class="project-title"><a href="https://discord.gg/pbRMbuMf7S" target="_blank">Devil's Cry</a></div>
+      <p>Experience intense battles (still in dev)</p>
+    </div>
+
+    <!-- Note -->
+    <p style="margin-top: 20px; font-size: 1.1em; color: #ccc; font-style: italic;">
+      This is not the discord I did all my work on. My old discord got disabled and I just didn't take the effort to get it back, so please be considerate of that.
+    </p>
+  </section>
+</div>
+
+<!-- Why Work With Me -->
+<div id="whyWorkContent" class="toggle-content">
+  <section id="why-work-with-me">
+    <h2>Why Work With Me?</h2>
+    <ul>
+      <li>Passionate and dedicated modder with a growing portfolio</li>
+      <li>Experience working with large gaming communities</li>
+      <li>Interested in transitioning into game development and creating original titles</li>
+      <li>Open to collaborations and investment opportunities</li>
+    </ul>
+  </section>
+</div>
+
+<!-- Future Goals (assuming continuation) -->
+<div id="futureContent" class="toggle-content">
+  <section id="future">
+    <h2>Future Goals</h2>
+    <p>...</p>
+  </section>
+</div>
+
+    </div> <!-- end content box -->
+  </div> <!-- end content wrapper -->
+</div>
+
+<!-- Footer -->
+<footer>
+  <p>© 2024 Sub's Modding Portfolio</p>
+</footer>
+
+<script>
+/* Toggle sections logic */
+document.querySelectorAll('.toggle-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.getAttribute('data-target');
+    const contentDiv = document.getElementById(targetId);
+    contentDiv.classList.toggle('show');
+  });
+});
+
+/* Font toggle logic */
+const fontBtn = document.getElementById('fontToggle');
+fontBtn.addEventListener('click', () => {
+  const currentFont = document.getElementById('fontLink').href;
+  if (currentFont.includes('Poppins')) {
+    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
+  } else {
+    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;600&display=swap';
+  }
+});
+</script>
+
+</body>
+</html>
