@@ -93,7 +93,7 @@ h1 {
   backdrop-filter: blur(4px);
 }
 
-/* Main content box - sharper edges, metallic border, darker background */
+/* Content box with sharp edges, metallic border, darker background */
 .content-box {
   max-width: 950px;
   width: 100%;
@@ -297,21 +297,25 @@ footer p {
 </head>
 <body>
 
-<!-- Background music -->
-<audio id="bgMusic" autoplay loop>
+<!-- Background music with no autoplay, to be started by user -->
+<audio id="bgMusic" loop>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
 </audio>
 
-<!-- Rain container -->
+<!-- Button to start music -->
+<div style="text-align: center; margin-top: 10px;">
+  <button id="playMusicBtn" class="toggle-btn">Play Background Music</button>
+</div>
+
+<!-- Raindrops container -->
 <div class="rain-container" id="rain"></div>
 
-<!-- Toggle font button -->
-<div style="text-align: center; margin-top: 20px;">
+<!-- Toggle Font Button -->
+<div style="text-align: center; margin-top: 10px;">
   <button class="toggle-btn" id="fontToggle">Switch Font</button>
 </div>
 
-<!-- Main Content -->
+<!-- Centered content -->
 <div class="content-wrapper">
   <div class="content-box">
 
@@ -446,20 +450,21 @@ fontBtn.addEventListener('click', () => {
   } else {
     document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
   }
-}
+});
 
-// Fix for background music
-window.addEventListener('load', () => {
-  const music = document.getElementById('bgMusic');
-  music.volume = 0.2; // set volume
-  // To ensure autoplay works in some browsers, attempt to play again:
-  const playPromise = music.play();
-  if (playPromise !== undefined) {
-    playPromise.catch(error => {
-      // Autoplay might be blocked, so fallback:
-      console.log('Autoplay prevented, user interaction needed to play music.');
-    });
-  }
+// Fix for background music playback
+const music = document.getElementById('bgMusic');
+const playBtn = document.getElementById('playMusicBtn');
+
+playBtn.addEventListener('click', () => {
+  music.play().then(() => {
+    music.volume = 0.2; // set volume
+    playBtn.disabled = true;
+    playBtn.innerText = "Music Playing";
+  }).catch((error) => {
+    console.log('Error trying to play music:', error);
+    alert('Music playback was blocked. Please try again.');
+  });
 });
 </script>
 
