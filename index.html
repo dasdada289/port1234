@@ -3,24 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Sub's Modding Portfolio</title>
+<title>WONDER</title>
 
-<!-- Fonts: default and toggle option for a cool font -->
-<link id="fontLink" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;600&display=swap" rel="stylesheet" />
+<!-- Fonts: Use a bold, techy font for a gun/lol vibe -->
+<link id="fontLink" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
+
+<!-- Favicon: a gun icon for enhancing theme -->
+<link rel="icon" href="https://img.icons8.com/ios-filled/50/000000/gun.png" />
 
 <style>
 /* Reset and base styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', 'Raleway', sans-serif;
-  color: #f0f0f0;
+  font-family: 'Russo One', 'Orbitron', sans-serif;
+  color: #ccc;
   overflow-x: hidden;
-  position: relative;
   min-height: 100vh;
-  background: #0d0d0d;
+  background-color: #111;
+  /* Use a gritty, metallic background image for a more intense look */
   background-image: 
-    linear-gradient(rgba(13, 13, 13, 0.8), rgba(13, 13, 13, 0.8)),
+    linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
   background-size: cover, cover;
   background-blend-mode: overlay;
@@ -38,13 +41,13 @@ body {
   overflow: hidden;
 }
 
-/* Raindrop styles */
+/* Raindrops: keep as is, maybe change gradient for a darker tone */
 .raindrop {
   position: absolute;
   bottom: 100%;
   width: 2px;
   height: var(--height);
-  background: linear-gradient(to bottom, #ff0000, transparent);
+  background: linear-gradient(to bottom, #555, transparent);
   opacity: 0.5;
   border-radius: 1px;
   transform: translateY(0) rotate(var(--rotation));
@@ -57,50 +60,54 @@ body {
   100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
 }
 
-/* Header styles with glow */
+/* Header - "WONDER" with metallic, sharp style */
 h1 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3.8em;
+  font-family: 'Russo One', 'Orbitron', sans-serif;
+  font-size: 4.2em;
   text-align: center;
   margin: 0 0 20px;
   padding: 50px 20px 20px;
-  color: #8B0000;
-  letter-spacing: 2px;
+  color: #d4af37; /* Goldish metallic color */
+  letter-spacing: 4px;
   animation: glow 2s infinite alternate;
-  text-shadow: 0 0 10px #8B0000, 2px 2px 12px rgba(0,0,0,0.9);
+  text-shadow: 0 0 15px #d4af37, 2px 2px 20px rgba(0,0,0,0.8);
+  text-transform: uppercase;
+  border-bottom: 4px solid #d4af37;
+  border-radius: 4px;
+  background: linear-gradient(45deg, #222, #555);
+  padding: 20px;
 }
 
-/* Glow animation for header */
+/* Glow animation for header - sharper glow */
 @keyframes glow {
-  0% { text-shadow: 0 0 10px #8B0000, 2px 2px 12px rgba(0,0,0,0.9); }
-  100% { text-shadow: 0 0 20px #8B0000, 4px 4px 20px rgba(0,0,0,0.7); }
+  0% { text-shadow: 0 0 15px #d4af37, 2px 2px 20px rgba(0,0,0,0.8); }
+  100% { text-shadow: 0 0 25px #d4af37, 4px 4px 25px rgba(0,0,0,0.7); }
 }
 
-/* Content wrapper styles */
+/* Content wrapper styles - dark with metallic accents */
 .content-wrapper {
   display: flex;
   justify-content: center;
   padding: 20px;
   box-sizing: border-box;
   width: 100%;
+  backdrop-filter: blur(4px);
 }
 
-/* Content box with rounded edges and colorful accents */
+/* Main content box - sharper edges, metallic border, darker background */
 .content-box {
   max-width: 950px;
   width: 100%;
-  background: rgba(0, 0, 0, 0.4);
-  border-radius: 30px;
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 10px;
   padding: 30px 40px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-  backdrop-filter: blur(8px);
-  margin-top: 20px;
-  margin-bottom: 50px;
-  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), inset 0 0 10px rgba(255,255,255,0.3);
+  border: 2px solid #ffd700; /* Gold border for a metallic feel */
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
   position: relative;
 }
 
-/* Torn paper effect overlay */
+/* Overlay for a battle-worn, textured look */
 .content-box::before {
   content: "";
   position: absolute;
@@ -109,40 +116,44 @@ h1 {
     45deg,
     transparent,
     transparent 10px,
-    rgba(0,0,0,0.2) 10px,
-    rgba(0,0,0,0.2) 20px
+    rgba(0,0,0,0.4) 10px,
+    rgba(0,0,0,0.4) 20px
   );
   pointer-events: none;
   z-index: 0;
-  border-radius: 30px;
+  border-radius: 10px;
 }
 
-/* Content children */
+/* Content above overlay */
 .content-box > * {
   position: relative;
   z-index: 1;
 }
 
-/* Section headers with colorful styles */
+/* Section headers with metallic, sharp look and glow */
 h2 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Russo One', 'Orbitron', sans-serif;
   font-size: 2em;
   margin-bottom: 15px;
-  border-bottom: 3px solid #8B0000;
+  border-bottom: 3px solid #ffd700;
   padding-bottom: 8px;
-  color: #8B0000;
+  color: #ffd700; /* Gold for emphasis */
   position: relative;
   display: inline-block;
-  text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  text-shadow: 1px 1px 4px rgba(255,255,255,0.9);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background: linear-gradient(45deg, #111, #222);
+  padding: 4px 8px;
 }
 
-/* Decorative line after headers with animation */
+/* Decorative line after headers - sharp and glowing */
 h2::after {
   content: "";
   display: block;
   height: 4px;
   width: 60px;
-  background-color: #A0522D;
+  background-color: #ff4500; /* Orange-red for a fiery accent */
   margin-top: 10px;
   border-radius: 2px;
   animation: pulseLine 2s infinite;
@@ -152,7 +163,7 @@ h2::after {
   50% { opacity: 0.4; }
 }
 
-/* List styles */
+/* List styles - darker with metallic accents */
 ul {
   list-style: none;
   padding: 0;
@@ -168,20 +179,20 @@ li {
   color: #ccc;
 }
 li::before {
-  content: "•";
+  content: "■"; /* sharper bullet */
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.5em;
-  color: #8B0000;
+  color: #ffd700; /* gold */
 }
 
-/* Project cards with rounded borders and hover effects */
+/* Project cards with metallic borders and hover glow */
 .project {
   background: rgba(255,255,255,0.02);
   padding: 20px;
-  border-radius: 15px;
+  border-radius: 10px;
   margin-bottom: 20px;
   border: 1px solid rgba(255,255,255,0.2);
   transition: all 0.3s ease;
@@ -189,40 +200,41 @@ li::before {
 .project:hover {
   background: rgba(255,255,255,0.05);
   transform: scale(1.02);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.8);
+  box-shadow: 0 0 20px #ffd700;
 }
 .project-title {
   font-weight: 700;
   font-size: 1.4em;
   margin-bottom: 10px;
-  color: #FF0000;
+  color: #d4af37; /* goldish */
   text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 }
 
-/* Link styles with color effects */
+/* Links with metallic glow and hover effects */
 a {
-  color: #FF0000;
+  color: #ff4500; /* fiery orange */
   text-decoration: none;
   transition: all 0.2s;
 }
 a:hover {
-  color: #FF6347;
-  text-shadow: 0 0 8px #FF6347;
+  color: #ff6347;
+  text-shadow: 0 0 8px #ff6347;
   transform: scale(1.02);
 }
 
-/* Footer styles with background overlay and rounded corners */
+/* Footer - sharp, dark with metallic accents */
 footer {
   position: relative;
   text-align: center;
   padding: 40px 20px;
   font-size: 1em;
-  color: #999;
-  background: rgba(0, 0, 0, 0.5);
-  box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
+  color: #ccc;
+  background: rgba(20, 20, 20, 0.7);
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.8);
   backdrop-filter: blur(4px);
   margin-top: 50px;
   border-radius: 20px;
+  border: 2px solid #ffd700;
 }
 footer::before {
   content: "";
@@ -239,39 +251,41 @@ footer p {
   z-index: 1;
 }
 
-/* Buttons for toggle sections with vibrant color and rounded shape (deep red) */
+/* Buttons for toggle sections - aggressive, metallic style */
 .toggle-btn {
   display: inline-block;
-  background-color: #b22222; /* firebrick red */
+  background-color: #8b0000; /* dark red */
   color: #fff;
   padding: 10px 20px;
   margin: 10px 0;
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Russo One', 'Orbitron', sans-serif;
   font-weight: 600;
-  transition: background-color 0.3s, transform 0.2s;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 0 10px #ff4500 inset, 0 0 15px #ff4500;
 }
 .toggle-btn:hover {
-  background-color: #8b0000; /* darkred hover */
+  background-color: #ff4500;
   transform: scale(1.05);
+  box-shadow: 0 0 20px #ff4500, inset 0 0 15px #ff4500;
 }
 
-/* Make all toggle content sections hidden by default, with scrollable overflow */
+/* Toggle content sections hidden by default, scrollable when shown */
 .toggle-content {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.5s ease, padding 0.3s;
   padding: 0 20px;
   margin-bottom: 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   background: rgba(255,255,255,0.1);
 }
 .toggle-content.show {
-  max-height: 600px; /* fixed height for scroll if content exceeds */
+  max-height: 600px; /* or auto for full height if content is small */
   padding: 20px;
-  overflow-y: auto; /* enable scrolling */
+  overflow-y: auto;
 }
 
 /* Responsive adjustments */
@@ -284,24 +298,30 @@ footer p {
 </head>
 <body>
 
-<!-- Raindrops container -->
+<!-- Background music: choose a more intense or battle-themed track -->
+<audio autoplay loop volume="0.2" muted id="bgMusic">
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
+
+<!-- Rain container -->
 <div class="rain-container" id="rain"></div>
 
-<!-- Toggle Font Button -->
+<!-- Toggle font button -->
 <div style="text-align: center; margin-top: 20px;">
   <button class="toggle-btn" id="fontToggle">Switch Font</button>
 </div>
 
-<!-- Centered content -->
+<!-- Main Content -->
 <div class="content-wrapper">
   <div class="content-box">
 
-    <h1>Sub's Modding Portfolio</h1>
+    <h1>WONDER</h1>
 
-    <!-- Toggle buttons for sections -->
+    <!-- Section Buttons -->
 <div style="text-align: center;">
   <button class="toggle-btn" data-target="aboutContent">About Me</button>
-  <button class="toggle-btn" data-target="skillsContent">Skills & Expertise</button>
+  <button class="toggle-btn" data-target="skillsContent">Skills &amp; Expertise</button>
   <button class="toggle-btn" data-target="projectsContent">Projects</button>
   <button class="toggle-btn" data-target="whyWorkContent">Why Work With Me?</button>
   <button class="toggle-btn" data-target="futureContent">Future Goals</button>
@@ -311,74 +331,67 @@ footer p {
 <div id="aboutContent" class="toggle-content">
   <section id="about">
     <h2>About Me</h2>
-    <p><strong>Name:</strong> Sub</p>
+    <p><strong>Name:</strong> WONDER</p>
     <p><strong>Age:</strong> 16</p>
-    <p><strong>Experience:</strong> Been Modding since july of 2024</p>
-    <p><strong>Availability:</strong> I have a IRL job but I do this as a hobby so I got the time to do it!</p>
+    <p><strong>Experience:</strong> Been Modding since July 2024</p>
+    <p><strong>Availability:</strong> IRL job but hobbyist, so I have time!</p>
     <p><strong>Career Highlights:</strong></p>
     <ul>
-      <li>Contributed to projects with millions of visits</li>
-      <li>Participated in mods reaching hundreds of millions of players</li>
-      <li>Worked on various "Type Soul" copies, including high-traffic 1s</li>
+      <li>Contributed to high-traffic projects</li>
+      <li>Mods reaching hundreds of millions of players</li>
+      <li>Worked on "Type Soul" copies</li>
     </ul>
-    <p style="font-weight: bold; margin-top: 20px;">Note: I no longer work for any of the projects mentioned below.</p>
+    <p style="font-weight: bold; margin-top: 20px;">Note: I no longer work for the projects below.</p>
   </section>
 </div>
 
 <!-- Skills & Expertise -->
 <div id="skillsContent" class="toggle-content">
   <section id="skills">
-    <h2>Skills & Expertise</h2>
+    <h2>Skills &amp; Expertise</h2>
     <ul>
-      <li>Game Modding & Custom Content Creation</li>
-      <li>Gameplay Adjustments & Balancing</li>
-      <li>Community Engagement & Feedback Integration</li>
-      <li>Passion for Learning Game Development</li>
+      <li>Game Modding &amp; Custom Content</li>
+      <li>Gameplay Adjustments &amp; Balancing</li>
+      <li>Community Engagement & Feedback</li>
+      <li>Game Development Passion</li>
     </ul>
   </section>
 </div>
 
-<!-- Notable Projects -->
+<!-- Projects -->
 <div id="projectsContent" class="toggle-content">
   <section id="projects">
     <h2>Notable Projects</h2>
-
     <div class="project">
       <div class="project-title">[Grand Alfheim] (Visits: 177K)</div>
-      <p>All-around modding(retired)</p>
-      <p><strong>Discord:</strong> <a href="https://discord.gg/aspjh6vHZj" target="_blank">Join Grand Alfheim Discord</a></p>
+      <p>All-around modding (retired)</p>
+      <p><strong>Discord:</strong> <a href="https://discord.gg/aspjh6vHZj" target="_blank">Join Grand Alfheim</a></p>
     </div>
-
     <div class="project">
-      <div class="project-title">[Type Soul Clones] (Total Visits: 2.1M)</div>
-      <p>Mods for tickets, in-game features, and chat systems</p>
-      <p><strong>Discord Links:</strong></p>
+      <div class="project-title">[Type Soul Clones] (2.1M Visits)</div>
+      <p>Mods for tickets, features, chat</p>
+      <p><strong>Discord:</strong></p>
       <ul>
         <li><a href="https://discord.com/invite/qmjyXaKUqn" target="_blank">Type War</a></li>
         <li><a href="https://discord.gg/typecc" target="_blank">Type Ego</a></li>
         <li><a href="https://discord.gg/ZS9W24rVs8" target="_blank">Type Rune</a></li>
       </ul>
     </div>
-
-    <!-- More projects -->
     <div class="project">
       <div class="project-title">Kenshin [In dev]</div>
       <p><strong>Discord:</strong> <a href="https://discord.gg/NWJ6D895E8" target="_blank">https://discord.gg/NWJ6D895E8</a></p>
     </div>
-
-    <!-- Current Projects -->
     <h2>Current Projects</h2>
     <div class="project">
       <div class="project-title"><a href="https://discord.gg/CursedNen" target="_blank">Cursed Nen</a></div>
-      <p>Embark on a dark adventure with this ongoing project.(still in dev)</p>
+      <p>Dark adventure, in dev</p>
     </div>
     <div class="project">
       <div class="project-title"><a href="https://discord.gg/pbRMbuMf7S" target="_blank">Devil's Cry</a></div>
-      <p>Experience intense battles (still in dev)</p>
+      <p>Intense battles, in dev</p>
     </div>
-
-    <p style="margin-top: 20px; font-size: 1.1em; color: #ccc; font-style: italic;">
-      This is not the discord I did all my work on. My old discord got disabled and I just didn't take the effort to get it back, so please be considerate of that.
+    <p style="margin-top: 20px; font-size: 1.1em; color: #777; font-style: italic;">
+      Old discord disabled, please be considerate.
     </p>
   </section>
 </div>
@@ -388,10 +401,10 @@ footer p {
   <section id="why-work-with-me">
     <h2>Why Work With Me?</h2>
     <ul>
-      <li>Passionate and dedicated modder with a growing portfolio</li>
-      <li>Experience working with large gaming communities</li>
-      <li>Interested in transitioning into game development and creating original titles</li>
-      <li>Open to collaborations and investment opportunities</li>
+      <li>Passionate modder with a growing portfolio</li>
+      <li>Experience with large communities</li>
+      <li>Interested in game development</li>
+      <li>Open to collabs & investments</li>
     </ul>
   </section>
 </div>
@@ -401,19 +414,18 @@ footer p {
   <section id="future">
     <h2>Future Goals</h2>
     <ul>
-      <li>I want to learn to code in Roblox Studio and become more of a developer.</li>
-      <li>Take on more of a development side and try to make my own game.</li>
+      <li>Learn Roblox Studio coding</li>
+      <li>Create my own game</li>
     </ul>
   </section>
 </div>
 
-    </div> <!-- end content box -->
-  </div> <!-- end content wrapper -->
+  </div>
 </div>
 
 <!-- Footer -->
 <footer>
-  <p>© 2024 Sub's Modding Portfolio</p>
+  <p>© 2024 WONDER</p>
 </footer>
 
 <script>
@@ -426,14 +438,14 @@ document.querySelectorAll('.toggle-btn').forEach(btn => {
   });
 });
 
-// Font toggle logic
+// Font toggle
 const fontBtn = document.getElementById('fontToggle');
 fontBtn.addEventListener('click', () => {
   const currentFont = document.getElementById('fontLink').href;
-  if (currentFont.includes('Poppins')) {
+  if (currentFont.includes('Russo+One')) {
     document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
   } else {
-    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;600&display=swap';
+    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
   }
 });
 </script>
