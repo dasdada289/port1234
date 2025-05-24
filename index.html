@@ -93,7 +93,7 @@ h1 {
   backdrop-filter: blur(4px);
 }
 
-/* Content box with sharp edges, metallic border, darker background */
+/* Main content box - sharper edges, metallic border, darker background */
 .content-box {
   max-width: 950px;
   width: 100%;
@@ -297,12 +297,12 @@ footer p {
 </head>
 <body>
 
-<!-- Background music with no autoplay, to be started by user -->
+<!-- Background music with no autoplay -->
 <audio id="bgMusic" loop>
   <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
 </audio>
 
-<!-- Button to start music -->
+<!-- Button to start music and jump to lyrics start -->
 <div style="text-align: center; margin-top: 10px;">
   <button id="playMusicBtn" class="toggle-btn">Play Background Music</button>
 </div>
@@ -315,7 +315,7 @@ footer p {
   <button class="toggle-btn" id="fontToggle">Switch Font</button>
 </div>
 
-<!-- Centered content -->
+<!-- Main Content -->
 <div class="content-wrapper">
   <div class="content-box">
 
@@ -450,13 +450,15 @@ fontBtn.addEventListener('click', () => {
   } else {
     document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
   }
-});
+}
 
-// Fix for background music playback
+// Handle music start at specific time
 const music = document.getElementById('bgMusic');
 const playBtn = document.getElementById('playMusicBtn');
 
 playBtn.addEventListener('click', () => {
+  const lyricsStartTime = 90; // change this to your lyrics start time in seconds
+  music.currentTime = lyricsStartTime;
   music.play().then(() => {
     music.volume = 0.2; // set volume
     playBtn.disabled = true;
