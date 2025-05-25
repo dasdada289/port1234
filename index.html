@@ -5,11 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>WONDER</title>
 
-<!-- Fonts: Use a bold, techy font for a gun/lol vibe -->
+<!-- Fonts -->
 <link id="fontLink" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
 
-<!-- Favicon: a gun icon for enhancing theme -->
+<!-- Favicon -->
 <link rel="icon" href="https://img.icons8.com/ios-filled/50/000000/gun.png" />
+
+<!-- YouTube IFrame API -->
+<script src="https://www.youtube.com/iframe_api"></script>
 
 <style>
 /* Reset and base styles */
@@ -21,7 +24,6 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   background-color: #111;
-  /* Use a gritty, metallic background image for a more intense look */
   background-image: 
     linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
@@ -41,50 +43,47 @@ body {
   overflow: hidden;
 }
 
-/* Raindrops: keep as is, maybe change gradient for a darker tone */
+/* Raindrops (keep same) */
 .raindrop {
   position: absolute;
   bottom: 100%;
   width: 2px;
   height: var(--height);
-  background: linear-gradient(to bottom, #555, transparent);
+  background: linear-gradient(to bottom, #550000, transparent);
   opacity: 0.5;
   border-radius: 1px;
   transform: translateY(0) rotate(var(--rotation));
   animation: fall linear infinite;
   animation-duration: var(--duration);
 }
-
 @keyframes fall {
   0% { transform: translateY(0) rotate(var(--rotation)); opacity: 0.5; }
   100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
 }
 
-/* Header - "WONDER" with metallic, sharp style */
+/* Header: "WONDER" with dark red glow */
 h1 {
   font-family: 'Russo One', 'Orbitron', sans-serif;
   font-size: 4.2em;
   text-align: center;
   margin: 0 0 20px;
   padding: 50px 20px 20px;
-  color: #d4af37; /* Goldish metallic color */
+  color: #440000; /* dark red */
   letter-spacing: 4px;
   animation: glow 2s infinite alternate;
-  text-shadow: 0 0 15px #d4af37, 2px 2px 20px rgba(0,0,0,0.8);
+  text-shadow: 0 0 15px #440000, 2px 2px 20px rgba(0,0,0,0.8);
   text-transform: uppercase;
-  border-bottom: 4px solid #d4af37;
+  border-bottom: 4px solid #440000;
   border-radius: 4px;
-  background: linear-gradient(45deg, #222, #555);
+  background: linear-gradient(45deg, #330000, #550000);
   padding: 20px;
 }
-
-/* Glow animation for header - sharper glow */
 @keyframes glow {
-  0% { text-shadow: 0 0 15px #d4af37, 2px 2px 20px rgba(0,0,0,0.8); }
-  100% { text-shadow: 0 0 25px #d4af37, 4px 4px 25px rgba(0,0,0,0.7); }
+  0% { text-shadow: 0 0 15px #440000, 2px 2px 20px rgba(0,0,0,0.8); }
+  100% { text-shadow: 0 0 25px #440000, 4px 4px 25px rgba(0,0,0,0.7); }
 }
 
-/* Content wrapper styles - dark with metallic accents */
+/* Content wrapper and boxes, with dark red accents */
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -94,20 +93,17 @@ h1 {
   backdrop-filter: blur(4px);
 }
 
-/* Main content box - sharper edges, metallic border, darker background */
 .content-box {
   max-width: 950px;
   width: 100%;
   background: rgba(20, 20, 20, 0.8);
   border-radius: 10px;
   padding: 30px 40px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), inset 0 0 10px rgba(255,255,255,0.3);
-  border: 2px solid #ffd700; /* Gold border for a metallic feel */
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), inset 0 0 10px rgba(255, 0, 0, 0.3);
+  border: 2px solid #660000; /* dark red border */
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
   position: relative;
 }
-
-/* Overlay for a battle-worn, textured look */
 .content-box::before {
   content: "";
   position: absolute;
@@ -116,44 +112,39 @@ h1 {
     45deg,
     transparent,
     transparent 10px,
-    rgba(0,0,0,0.4) 10px,
-    rgba(0,0,0,0.4) 20px
+    rgba(102,0,0,0.4) 10px,
+    rgba(102,0,0,0.4) 20px
   );
   pointer-events: none;
   z-index: 0;
   border-radius: 10px;
 }
-
-/* Content above overlay */
 .content-box > * {
   position: relative;
   z-index: 1;
 }
 
-/* Section headers with metallic, sharp look and glow */
+/* Section headers with dark red glow */
 h2 {
   font-family: 'Russo One', 'Orbitron', sans-serif;
   font-size: 2em;
   margin-bottom: 15px;
-  border-bottom: 3px solid #ffd700;
+  border-bottom: 3px solid #660000;
   padding-bottom: 8px;
-  color: #ffd700; /* Gold for emphasis */
+  color: #550000; /* dark red */
   position: relative;
   display: inline-block;
-  text-shadow: 1px 1px 4px rgba(255,255,255,0.9);
+  text-shadow: 1px 1px 4px rgba(255, 0, 0, 0.9);
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(45deg, #111, #222);
-  padding: 4px 8px;
+  background: linear-gradient(45deg, #330000, #550000);
 }
-
-/* Decorative line after headers - sharp and glowing */
 h2::after {
   content: "";
   display: block;
   height: 4px;
   width: 60px;
-  background-color: #ff4500; /* Orange-red for a fiery accent */
+  background-color: #990000; /* darker red */
   margin-top: 10px;
   border-radius: 2px;
   animation: pulseLine 2s infinite;
@@ -163,7 +154,7 @@ h2::after {
   50% { opacity: 0.4; }
 }
 
-/* List styles - darker with metallic accents */
+/* List item styles with red accents */
 ul {
   list-style: none;
   padding: 0;
@@ -179,62 +170,62 @@ li {
   color: #ccc;
 }
 li::before {
-  content: "■"; /* sharper bullet */
+  content: "■";
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.5em;
-  color: #ffd700; /* gold */
+  color: #990000; /* red */
 }
 
-/* Project cards with metallic borders and hover glow */
+/* Project cards with dark red borders and glow */
 .project {
   background: rgba(255,255,255,0.02);
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(102,0,0,0.4);
   transition: all 0.3s ease;
 }
 .project:hover {
   background: rgba(255,255,255,0.05);
   transform: scale(1.02);
-  box-shadow: 0 0 20px #ffd700;
+  box-shadow: 0 0 20px #990000;
 }
 .project-title {
   font-weight: 700;
   font-size: 1.4em;
   margin-bottom: 10px;
-  color: #d4af37; /* goldish */
+  color: #cc3333; /* red tone */
   text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 }
 
-/* Links with metallic glow and hover effects */
+/* Links with dark red glow on hover */
 a {
-  color: #ff4500; /* fiery orange */
+  color: #990000;
   text-decoration: none;
   transition: all 0.2s;
 }
 a:hover {
-  color: #ff6347;
-  text-shadow: 0 0 8px #ff6347;
+  color: #cc0000;
+  text-shadow: 0 0 8px #cc0000;
   transform: scale(1.02);
 }
 
-/* Footer - sharp, dark with metallic accents */
+/* Footer with red accents */
 footer {
   position: relative;
   text-align: center;
   padding: 40px 20px;
   font-size: 1em;
-  color: #ccc;
+  color: #990000;
   background: rgba(20, 20, 20, 0.7);
-  box-shadow: inset 0 0 20px rgba(255,255,255,0.8);
+  box-shadow: inset 0 0 20px rgba(153, 0, 0, 0.8);
   backdrop-filter: blur(4px);
   margin-top: 50px;
   border-radius: 20px;
-  border: 2px solid #ffd700;
+  border: 2px solid #660000;
 }
 footer::before {
   content: "";
@@ -251,10 +242,10 @@ footer p {
   z-index: 1;
 }
 
-/* Buttons for toggle sections - aggressive, metallic style */
+/* Buttons for toggle sections with red accents */
 .toggle-btn {
   display: inline-block;
-  background-color: #8b0000; /* dark red */
+  background-color: #660000;
   color: #fff;
   padding: 10px 20px;
   margin: 10px 0;
@@ -264,15 +255,15 @@ footer p {
   font-family: 'Russo One', 'Orbitron', sans-serif;
   font-weight: 600;
   transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-  box-shadow: 0 0 10px #ff4500 inset, 0 0 15px #ff4500;
+  box-shadow: 0 0 10px #990000 inset, 0 0 15px #990000;
 }
 .toggle-btn:hover {
-  background-color: #ff4500;
+  background-color: #cc0000;
   transform: scale(1.05);
-  box-shadow: 0 0 20px #ff4500, inset 0 0 15px #ff4500;
+  box-shadow: 0 0 20px #cc0000, inset 0 0 15px #cc0000;
 }
 
-/* Toggle content sections hidden by default, scrollable when shown */
+/* Toggle content sections */
 .toggle-content {
   max-height: 0;
   overflow: hidden;
@@ -283,7 +274,7 @@ footer p {
   background: rgba(255,255,255,0.1);
 }
 .toggle-content.show {
-  max-height: 600px; /* or auto for full height if content is small */
+  max-height: 600px;
   padding: 20px;
   overflow-y: auto;
 }
@@ -298,27 +289,10 @@ footer p {
 </head>
 <body>
 
-<!-- Background music: choose a more intense or battle-themed track -->
-<audio autoplay loop volume="0.2" muted id="bgMusic">
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
-  Your browser does not support the audio element.
-</audio>
+<!-- Background music with dark red tint -->
+<iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/48StFOF4hsQ?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=48StFOF4hsQ" frameborder="0" allow="autoplay" allowfullscreen></iframe>
 
-<!-- Rain container -->
-<div class="rain-container" id="rain"></div>
-
-<!-- Toggle font button -->
-<div style="text-align: center; margin-top: 20px;">
-  <button class="toggle-btn" id="fontToggle">Switch Font</button>
-</div>
-
-<!-- Main Content -->
-<div class="content-wrapper">
-  <div class="content-box">
-
-    <h1>WONDER</h1>
-
-    <!-- Section Buttons -->
+<!-- Buttons to toggle sections -->
 <div style="text-align: center;">
   <button class="toggle-btn" data-target="aboutContent">About Me</button>
   <button class="toggle-btn" data-target="skillsContent">Skills &amp; Expertise</button>
@@ -327,100 +301,22 @@ footer p {
   <button class="toggle-btn" data-target="futureContent">Future Goals</button>
 </div>
 
-<!-- About Me -->
-<div id="aboutContent" class="toggle-content">
-  <section id="about">
+<div class="rain-container" id="rain"></div>
+
+<div style="text-align: center;">
+  <button class="toggle-btn" id="fontToggle">Switch Font</button>
+</div>
+
+<div class="content-wrapper">
+  <div class="content-box" id="aboutContent">
     <h2>About Me</h2>
-    <p><strong>Name:</strong> WONDER</p>
-    <p><strong>Age:</strong> 16</p>
-    <p><strong>Experience:</strong> Been Modding since July 2024</p>
-    <p><strong>Availability:</strong> IRL job but hobbyist, so I have time!</p>
-    <p><strong>Career Highlights:</strong></p>
-    <ul>
-      <li>Contributed to high-traffic projects</li>
-      <li>Mods reaching hundreds of millions of players</li>
-      <li>Worked on "Type Soul" copies</li>
-    </ul>
-    <p style="font-weight: bold; margin-top: 20px;">Note: I no longer work for the projects below.</p>
-  </section>
-</div>
-
-<!-- Skills & Expertise -->
-<div id="skillsContent" class="toggle-content">
-  <section id="skills">
-    <h2>Skills &amp; Expertise</h2>
-    <ul>
-      <li>Game Modding &amp; Custom Content</li>
-      <li>Gameplay Adjustments &amp; Balancing</li>
-      <li>Community Engagement & Feedback</li>
-      <li>Game Development Passion</li>
-    </ul>
-  </section>
-</div>
-
-<!-- Projects -->
-<div id="projectsContent" class="toggle-content">
-  <section id="projects">
-    <h2>Notable Projects</h2>
-    <div class="project">
-      <div class="project-title">[Grand Alfheim] (Visits: 177K)</div>
-      <p>All-around modding (retired)</p>
-      <p><strong>Discord:</strong> <a href="https://discord.gg/aspjh6vHZj" target="_blank">Join Grand Alfheim</a></p>
-    </div>
-    <div class="project">
-      <div class="project-title">[Type Soul Clones] (2.1M Visits)</div>
-      <p>Mods for tickets, features, chat</p>
-      <p><strong>Discord:</strong></p>
-      <ul>
-        <li><a href="https://discord.com/invite/qmjyXaKUqn" target="_blank">Type War</a></li>
-        <li><a href="https://discord.gg/typecc" target="_blank">Type Ego</a></li>
-        <li><a href="https://discord.gg/ZS9W24rVs8" target="_blank">Type Rune</a></li>
-      </ul>
-    </div>
-    <div class="project">
-      <div class="project-title">Kenshin [In dev]</div>
-      <p><strong>Discord:</strong> <a href="https://discord.gg/NWJ6D895E8" target="_blank">https://discord.gg/NWJ6D895E8</a></p>
-    </div>
-    <h2>Current Projects</h2>
-    <div class="project">
-      <div class="project-title"><a href="https://discord.gg/CursedNen" target="_blank">Cursed Nen</a></div>
-      <p>Dark adventure, in dev</p>
-    </div>
-    <div class="project">
-      <div class="project-title"><a href="https://discord.gg/pbRMbuMf7S" target="_blank">Devil's Cry</a></div>
-      <p>Intense battles, in dev</p>
-    </div>
-    <p style="margin-top: 20px; font-size: 1.1em; color: #777; font-style: italic;">
-      Old discord disabled, please be considerate.
-    </p>
-  </section>
-</div>
-
-<!-- Why Work With Me -->
-<div id="whyWorkContent" class="toggle-content">
-  <section id="why-work-with-me">
-    <h2>Why Work With Me?</h2>
-    <ul>
-      <li>Passionate modder with a growing portfolio</li>
-      <li>Experience with large communities</li>
-      <li>Interested in game development</li>
-      <li>Open to collabs & investments</li>
-    </ul>
-  </section>
-</div>
-
-<!-- Future Goals -->
-<div id="futureContent" class="toggle-content">
-  <section id="future">
-    <h2>Future Goals</h2>
-    <ul>
-      <li>Learn Roblox Studio coding</li>
-      <li>Create my own game</li>
-    </ul>
-  </section>
-</div>
-
+    <p>[Your About Me content]</p>
   </div>
+  <div class="content-box" id="skillsContent" style="display:none;">
+    <h2>Skills &amp; Expertise</h2>
+    <p>[Your Skills content]</p>
+  </div>
+  <!-- Add other sections with similar IDs -->
 </div>
 
 <!-- Footer -->
@@ -429,26 +325,43 @@ footer p {
 </footer>
 
 <script>
-// Toggle sections logic
+let player;
+
+// Initialize YouTube Player
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('musicPlayer', {
+    events: {
+      'onReady': onPlayerReady,
+    }
+  });
+}
+
+function onPlayerReady() {
+  // Start from desired timestamp automatically
+  const startTime = 90; // adjust as needed
+  player.seekTo(startTime);
+  player.playVideo();
+}
+
+// Toggle section visibility
 document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
-    const contentDiv = document.getElementById(targetId);
-    contentDiv.classList.toggle('show');
+    document.querySelectorAll('.content-box').forEach(c => c.style.display='none');
+    const targetDiv = document.getElementById(targetId);
+    if(targetDiv) targetDiv.style.display='block';
   });
 });
 
 // Font toggle
-const fontBtn = document.getElementById('fontToggle');
-fontBtn.addEventListener('click', () => {
-  const currentFont = document.getElementById('fontLink').href;
-  if (currentFont.includes('Russo+One')) {
-    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
+document.getElementById('fontToggle').addEventListener('click', () => {
+  const fontLink = document.getElementById('fontLink');
+  if (fontLink.href.includes('Russo+One')) {
+    fontLink.href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
   } else {
-    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
+    fontLink.href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
   }
 });
 </script>
-
 </body>
 </html>
