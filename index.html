@@ -42,6 +42,7 @@ body {
   overflow: hidden;
 }
 
+/* Raindrops */
 .raindrop {
   position: absolute;
   bottom: 100%;
@@ -54,7 +55,6 @@ body {
   animation: fall linear infinite;
   animation-duration: var(--duration);
 }
-
 @keyframes fall {
   0% { transform: translateY(0) rotate(var(--rotation)); opacity: 0.5; }
   100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
@@ -76,7 +76,6 @@ h1 {
   background: linear-gradient(45deg, #222, #555);
   padding: 20px;
 }
-
 @keyframes glow {
   0% { text-shadow: 0 0 15px #3A3A3A, 2px 2px 20px rgba(0,0,0,0.8); }
   100% { text-shadow: 0 0 25px #3A3A3A, 4px 4px 25px rgba(0,0,0,0.7); }
@@ -102,7 +101,6 @@ h1 {
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
   position: relative;
 }
-
 .content-box::before {
   content: "";
   position: absolute;
@@ -118,7 +116,6 @@ h1 {
   z-index: 0;
   border-radius: 10px;
 }
-
 .content-box > * {
   position: relative;
   z-index: 1;
@@ -139,7 +136,6 @@ h2 {
   background: linear-gradient(45deg, #111, #222);
   padding: 4px 8px;
 }
-
 h2::after {
   content: "";
   display: block;
@@ -283,34 +279,38 @@ footer p {
 </head>
 <body>
 
-<!-- YouTube embed for background music -->
-<iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/48StFOF4hsQ?enablejsapi=1&autoplay=0&mute=1&controls=0&loop=1&playlist=48StFOF4hsQ" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+<!-- YouTube embed set to autoplay from start -->
+<iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/48StFOF4hsQ?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=48StFOF4hsQ" frameborder="0" allow="autoplay" allowfullscreen></iframe>
 
-<!-- Button to start music from lyrics -->
-<div style="text-align: center; margin-top: 10px;">
-  <button id="playMusicBtn" class="toggle-btn">Play Background Music</button>
+<!-- Remove the manual music button, since autoplay now -->
+<!-- Your toggle buttons for sections -->
+<div style="text-align: center;">
+  <button class="toggle-btn" data-target="aboutContent">About Me</button>
+  <button class="toggle-btn" data-target="skillsContent">Skills &amp; Expertise</button>
+  <button class="toggle-btn" data-target="projectsContent">Projects</button>
+  <button class="toggle-btn" data-target="whyWorkContent">Why Work With Me?</button>
+  <button class="toggle-btn" data-target="futureContent">Future Goals</button>
 </div>
-
-<!-- Your existing content sections go here, omitted for brevity, use your previous code -->
 
 <div class="rain-container" id="rain"></div>
 
-<div style="text-align: center; margin-top: 10px;">
+<div style="text-align: center;">
   <button class="toggle-btn" id="fontToggle">Switch Font</button>
 </div>
 
 <div class="content-wrapper">
-  <div class="content-box">
-    <h1>WONDER</h1>
-    <!-- Toggle section buttons -->
-    <!-- Your existing buttons code -->
-    <!-- ... -->
+  <div class="content-box" id="aboutContent">
+    <h2>About Me</h2>
+    <p>[Your About Me content]</p>
   </div>
+  <div class="content-box" id="skillsContent" style="display:none;">
+    <h2>Skills &amp; Expertise</h2>
+    <p>[Your Skills content]</p>
+  </div>
+  <!-- Add other sections similarly, ensure IDs match data-target -->
 </div>
 
-<!-- Your existing content sections -->
-
-<!-- Your footer -->
+<!-- Footer -->
 <footer>
   <p>© 2024 WONDER</p>
 </footer>
@@ -318,7 +318,7 @@ footer p {
 <script>
 let player;
 
-// Initialize YouTube API player
+// Initialize YouTube API
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('musicPlayer', {
     events: {
@@ -326,48 +326,29 @@ function onYouTubeIframeAPIReady() {
     }
   });
 }
-
-function onPlayerReady() {
-  // Optional: set initial position if needed
-  // player.seekTo(90);
 }
 
 // Toggle sections
 document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
-    const contentDiv = document.getElementById(targetId);
-    if (contentDiv) {
-      contentDiv.classList.toggle('show');
-    }
+    // hide all sections first
+    document.querySelectorAll('.content-box').forEach(c => c.style.display='none');
+    // show the targeted section
+    const targetDiv = document.getElementById(targetId);
+    if(targetDiv) targetDiv.style.display='block';
   });
-});
+}
 
 // Font toggle
-const fontBtn = document.getElementById('fontToggle');
-fontBtn.addEventListener('click', () => {
-  const currentFont = document.getElementById('fontLink').href;
-  if (currentFont.includes('Russo+One')) {
-    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
+document.getElementById('fontToggle').addEventListener('click', () => {
+  const fontLink = document.getElementById('fontLink');
+  if (fontLink.href.includes('Russo+One')) {
+    fontLink.href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
   } else {
-    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
-  }
-});
-
-// Play music button handler
-const music = document.getElementById('musicPlayer');
-const playBtn = document.getElementById('playMusicBtn');
-
-playBtn.addEventListener('click', () => {
-  if (player && typeof player.seekTo === 'function' && typeof player.playVideo === 'function') {
-    const startTime = 90; // change to your lyrics start time in seconds
-    player.seekTo(startTime);
-    player.playVideo();
-    playBtn.disabled = true;
-    playBtn.innerText = "Music Playing";
+    fontLink.href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
   }
 });
 </script>
-
 </body>
 </html>
