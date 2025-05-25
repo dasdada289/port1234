@@ -11,11 +11,11 @@
 <!-- Favicon -->
 <link rel="icon" href="https://img.icons8.com/ios-filled/50/000000/gun.png" />
 
-<!-- YouTube IFrame API -->
+<!-- YouTube API for music control -->
 <script src="https://www.youtube.com/iframe_api"></script>
 
 <style>
-/* Reset and base styles */
+/* Reset & Base Styles */
 body {
   margin: 0;
   padding: 0;
@@ -24,7 +24,7 @@ body {
   overflow-x: hidden;
   min-height: 100vh;
   background-color: #111;
-  background-image: 
+  background-image:
     linear-gradient(rgba(10,10,10,0.85), rgba(10,10,10,0.85)),
     url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
   background-size: cover, cover;
@@ -32,7 +32,7 @@ body {
   transition: font-family 0.5s ease;
 }
 
-/* Rain container remains */
+/* Rain effect container, same as original */
 .rain-container {
   position: fixed;
   top: 0; left: 0;
@@ -43,7 +43,7 @@ body {
   overflow: hidden;
 }
 
-/* Raindrops (keep same) */
+/* Raindrops style (same as original) */
 .raindrop {
   position: absolute;
   bottom: 100%;
@@ -61,7 +61,7 @@ body {
   100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
 }
 
-/* Header: "WONDER" with dark red glow */
+/* Header style with dark red theme */
 h1 {
   font-family: 'Russo One', 'Orbitron', sans-serif;
   font-size: 4.2em;
@@ -83,7 +83,7 @@ h1 {
   100% { text-shadow: 0 0 25px #440000, 4px 4px 25px rgba(0,0,0,0.7); }
 }
 
-/* Content wrapper and boxes, with dark red accents */
+/* Content wrapper styles (transparent background with blur) */
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -93,13 +93,14 @@ h1 {
   backdrop-filter: blur(4px);
 }
 
+/* Content box styles (darker with red accents) */
 .content-box {
   max-width: 950px;
   width: 100%;
   background: rgba(20, 20, 20, 0.8);
   border-radius: 10px;
   padding: 30px 40px;
-  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8), inset 0 0 10px rgba(255, 0, 0, 0.3);
+  box-shadow: 0 0 20px rgba(102,0,0,0.8), inset 0 0 10px rgba(102,0,0,0.3);
   border: 2px solid #660000; /* dark red border */
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
   position: relative;
@@ -134,7 +135,7 @@ h2 {
   color: #550000; /* dark red */
   position: relative;
   display: inline-block;
-  text-shadow: 1px 1px 4px rgba(255, 0, 0, 0.9);
+  text-shadow: 1px 1px 4px rgba(255,0,0,0.9);
   text-transform: uppercase;
   letter-spacing: 2px;
   background: linear-gradient(45deg, #330000, #550000);
@@ -154,7 +155,7 @@ h2::after {
   50% { opacity: 0.4; }
 }
 
-/* List item styles with red accents */
+/* List items with red accents */
 ul {
   list-style: none;
   padding: 0;
@@ -176,10 +177,10 @@ li::before {
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.5em;
-  color: #990000; /* red */
+  color: #990000; /* dark red */
 }
 
-/* Project cards with dark red borders and glow */
+/* Project cards with red borders and glow */
 .project {
   background: rgba(255,255,255,0.02);
   padding: 20px;
@@ -201,7 +202,7 @@ li::before {
   text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 }
 
-/* Links with dark red glow on hover */
+/* Links with red glow on hover */
 a {
   color: #990000;
   text-decoration: none;
@@ -242,7 +243,7 @@ footer p {
   z-index: 1;
 }
 
-/* Buttons for toggle sections with red accents */
+/* Buttons for toggle sections - dark red theme */
 .toggle-btn {
   display: inline-block;
   background-color: #660000;
@@ -263,7 +264,7 @@ footer p {
   box-shadow: 0 0 20px #cc0000, inset 0 0 15px #cc0000;
 }
 
-/* Toggle content sections */
+/* Toggle content sections (hidden by default) */
 .toggle-content {
   max-height: 0;
   overflow: hidden;
@@ -279,7 +280,7 @@ footer p {
   overflow-y: auto;
 }
 
-/* Responsive adjustments */
+/* Responsive font sizes */
 @media(max-width: 600px) {
   h1 { font-size: 3em; }
   .content-box { padding: 20px; }
@@ -289,10 +290,10 @@ footer p {
 </head>
 <body>
 
-<!-- Background music with dark red tint -->
+<!-- YouTube embed set to autoplay from start, loop, muted -->
 <iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/48StFOF4hsQ?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=48StFOF4hsQ" frameborder="0" allow="autoplay" allowfullscreen></iframe>
 
-<!-- Buttons to toggle sections -->
+<!-- Main dropdown buttons (no manual start button) -->
 <div style="text-align: center;">
   <button class="toggle-btn" data-target="aboutContent">About Me</button>
   <button class="toggle-btn" data-target="skillsContent">Skills &amp; Expertise</button>
@@ -301,22 +302,38 @@ footer p {
   <button class="toggle-btn" data-target="futureContent">Future Goals</button>
 </div>
 
+<!-- Rain effect container (unchanged) -->
 <div class="rain-container" id="rain"></div>
 
+<!-- Font toggle button -->
 <div style="text-align: center;">
   <button class="toggle-btn" id="fontToggle">Switch Font</button>
 </div>
 
+<!-- Content sections (replace with your actual content) -->
 <div class="content-wrapper">
   <div class="content-box" id="aboutContent">
     <h2>About Me</h2>
-    <p>[Your About Me content]</p>
+    <p>/* Your about me info here */</p>
   </div>
   <div class="content-box" id="skillsContent" style="display:none;">
     <h2>Skills &amp; Expertise</h2>
-    <p>[Your Skills content]</p>
+    <ul>
+      <li>Game Modding &amp; Custom Content</li>
+      <li>Gameplay Adjustments &amp; Balancing</li>
+      <li>Community Engagement & Feedback</li>
+      <li>Game Development Passion</li>
+    </ul>
   </div>
-  <!-- Add other sections with similar IDs -->
+  <div class="content-box" id="projectsContent" style="display:none;">
+    <!-- Your projects info -->
+  </div>
+  <div class="content-box" id="whyWorkContent" style="display:none;">
+    <!-- Your "Why Work With Me" info -->
+  </div>
+  <div class="content-box" id="futureContent" style="display:none;">
+    <!-- Your future goals info -->
+  </div>
 </div>
 
 <!-- Footer -->
@@ -327,7 +344,7 @@ footer p {
 <script>
 let player;
 
-// Initialize YouTube Player
+// Initialize YouTube API
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('musicPlayer', {
     events: {
@@ -337,13 +354,12 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady() {
-  // Start from desired timestamp automatically
-  const startTime = 90; // adjust as needed
+  const startTime = 90; // your lyrics start second
   player.seekTo(startTime);
   player.playVideo();
 }
 
-// Toggle section visibility
+// Dropdown toggle logic
 document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
