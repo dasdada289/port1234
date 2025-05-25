@@ -11,17 +11,15 @@
 <!-- Favicon -->
 <link rel="icon" href="https://img.icons8.com/ios-filled/50/000000/gun.png" />
 
-<!-- YouTube API for music control -->
+<!-- YouTube API -->
 <script src="https://www.youtube.com/iframe_api"></script>
 
 <style>
-/* Reset & Base Styles */
 body {
   margin: 0;
   padding: 0;
   font-family: 'Russo One', 'Orbitron', sans-serif;
   color: #ccc;
-  overflow-x: hidden;
   min-height: 100vh;
   background-color: #111;
   background-image:
@@ -32,7 +30,7 @@ body {
   transition: font-family 0.5s ease;
 }
 
-/* Rain effect container, same as original */
+/* Rain effect container (unchanged) */
 .rain-container {
   position: fixed;
   top: 0; left: 0;
@@ -43,7 +41,7 @@ body {
   overflow: hidden;
 }
 
-/* Raindrops style (same as original) */
+/* Raindrops style (unchanged) */
 .raindrop {
   position: absolute;
   bottom: 100%;
@@ -61,7 +59,7 @@ body {
   100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
 }
 
-/* Header style with dark red theme */
+/* Header with dark red theme */
 h1 {
   font-family: 'Russo One', 'Orbitron', sans-serif;
   font-size: 4.2em;
@@ -83,7 +81,7 @@ h1 {
   100% { text-shadow: 0 0 25px #440000, 4px 4px 25px rgba(0,0,0,0.7); }
 }
 
-/* Content wrapper styles (transparent background with blur) */
+/* Content wrapper styles (dark with red accents) */
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -93,7 +91,6 @@ h1 {
   backdrop-filter: blur(4px);
 }
 
-/* Content box styles (darker with red accents) */
 .content-box {
   max-width: 950px;
   width: 100%;
@@ -125,7 +122,7 @@ h1 {
   z-index: 1;
 }
 
-/* Section headers with dark red glow */
+/* Section headers in dark red */
 h2 {
   font-family: 'Russo One', 'Orbitron', sans-serif;
   font-size: 2em;
@@ -243,7 +240,7 @@ footer p {
   z-index: 1;
 }
 
-/* Buttons for toggle sections - dark red theme */
+/* Toggle button styles (dark red theme) */
 .toggle-btn {
   display: inline-block;
   background-color: #660000;
@@ -264,7 +261,7 @@ footer p {
   box-shadow: 0 0 20px #cc0000, inset 0 0 15px #cc0000;
 }
 
-/* Toggle content sections (hidden by default) */
+/* Hidden toggle sections styling */
 .toggle-content {
   max-height: 0;
   overflow: hidden;
@@ -280,7 +277,7 @@ footer p {
   overflow-y: auto;
 }
 
-/* Responsive font sizes */
+/* Responsive adjustments */
 @media(max-width: 600px) {
   h1 { font-size: 3em; }
   .content-box { padding: 20px; }
@@ -290,10 +287,10 @@ footer p {
 </head>
 <body>
 
-<!-- YouTube embed set to autoplay from start, loop, muted -->
+<!-- Music iframe: auto-starts from your specified timestamp, loops, muted -->
 <iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/48StFOF4hsQ?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=48StFOF4hsQ" frameborder="0" allow="autoplay" allowfullscreen></iframe>
 
-<!-- Main dropdown buttons (no manual start button) -->
+<!-- Original dropdown toggle buttons -->
 <div style="text-align: center;">
   <button class="toggle-btn" data-target="aboutContent">About Me</button>
   <button class="toggle-btn" data-target="skillsContent">Skills &amp; Expertise</button>
@@ -302,19 +299,16 @@ footer p {
   <button class="toggle-btn" data-target="futureContent">Future Goals</button>
 </div>
 
-<!-- Rain effect container (unchanged) -->
+<!-- Your content sections -->
 <div class="rain-container" id="rain"></div>
-
-<!-- Font toggle button -->
 <div style="text-align: center;">
   <button class="toggle-btn" id="fontToggle">Switch Font</button>
 </div>
 
-<!-- Content sections (replace with your actual content) -->
 <div class="content-wrapper">
-  <div class="content-box" id="aboutContent">
+  <div class="content-box" id="aboutContent" style="display:block;">
     <h2>About Me</h2>
-    <p>/* Your about me info here */</p>
+    <p>Details about you...</p>
   </div>
   <div class="content-box" id="skillsContent" style="display:none;">
     <h2>Skills &amp; Expertise</h2>
@@ -329,7 +323,7 @@ footer p {
     <!-- Your projects info -->
   </div>
   <div class="content-box" id="whyWorkContent" style="display:none;">
-    <!-- Your "Why Work With Me" info -->
+    <!-- Your why work info -->
   </div>
   <div class="content-box" id="futureContent" style="display:none;">
     <!-- Your future goals info -->
@@ -343,8 +337,6 @@ footer p {
 
 <script>
 let player;
-
-// Initialize YouTube API
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('musicPlayer', {
     events: {
@@ -352,14 +344,13 @@ function onYouTubeIframeAPIReady() {
     }
   });
 }
-
 function onPlayerReady() {
-  const startTime = 90; // your lyrics start second
+  const startTime = 90; // your start second
   player.seekTo(startTime);
   player.playVideo();
 }
 
-// Dropdown toggle logic
+// Toggle dropdowns
 document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
@@ -379,5 +370,6 @@ document.getElementById('fontToggle').addEventListener('click', () => {
   }
 });
 </script>
+
 </body>
 </html>
