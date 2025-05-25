@@ -6,10 +6,9 @@
 <title>WONDER</title>
 
 <!-- Fonts -->
-<link id="fontLink" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;600&display=swap" rel="stylesheet" />
+<link id="fontLink" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
 
 <style>
-/* Reset and base styles */
 body {
   margin: 0;
   padding: 0;
@@ -27,7 +26,6 @@ body {
   transition: font-family 0.5s ease;
 }
 
-/* Rain container remains */
 .rain-container {
   position: fixed;
   top: 0; left: 0;
@@ -38,7 +36,6 @@ body {
   overflow: hidden;
 }
 
-/* Raindrop styles (unchanged) */
 .raindrop {
   position: absolute;
   bottom: 100%;
@@ -56,7 +53,6 @@ body {
   100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
 }
 
-/* Header styles with glow */
 h1 {
   font-family: 'Poppins', sans-serif;
   font-size: 3.8em;
@@ -69,13 +65,11 @@ h1 {
   text-shadow: 0 0 10px #8B0000, 2px 2px 12px rgba(0,0,0,0.9);
 }
 
-/* Glow animation for header */
 @keyframes glow {
   0% { text-shadow: 0 0 10px #8B0000, 2px 2px 12px rgba(0,0,0,0.9); }
   100% { text-shadow: 0 0 20px #8B0000, 4px 4px 20px rgba(0,0,0,0.7); }
 }
 
-/* Content wrapper styles */
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -84,7 +78,6 @@ h1 {
   width: 100%;
 }
 
-/* Content box styles */
 .content-box {
   max-width: 950px;
   width: 100%;
@@ -99,7 +92,6 @@ h1 {
   position: relative;
 }
 
-/* Torn paper effect overlay */
 .content-box::before {
   content: "";
   position: absolute;
@@ -116,13 +108,11 @@ h1 {
   border-radius: 30px;
 }
 
-/* Content children */
 .content-box > * {
   position: relative;
   z-index: 1;
 }
 
-/* Section headers styles */
 h2 {
   font-family: 'Raleway', sans-serif;
   font-size: 2em;
@@ -135,7 +125,6 @@ h2 {
   text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
 }
 
-/* Decorative line after headers with animation */
 h2::after {
   content: "";
   display: block;
@@ -151,7 +140,6 @@ h2::after {
   50% { opacity: 0.4; }
 }
 
-/* List styles */
 ul {
   list-style: none;
   padding: 0;
@@ -175,7 +163,6 @@ li::before {
   color: #8B0000;
 }
 
-/* Project cards with rounded borders and hover effects */
 .project {
   background: rgba(255,255,255,0.02);
   padding: 20px;
@@ -197,7 +184,6 @@ li::before {
   text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 }
 
-/* Link styles */
 a {
   color: #FF0000;
   text-decoration: none;
@@ -209,7 +195,6 @@ a:hover {
   transform: scale(1.02);
 }
 
-/* Footer styles */
 footer {
   position: relative;
   text-align: center;
@@ -237,7 +222,6 @@ footer p {
   z-index: 1;
 }
 
-/* Buttons for dropdowns */
 .toggle-btn {
   display: inline-block;
   background-color: #2C3E50;
@@ -256,7 +240,6 @@ footer p {
   transform: scale(1.05);
 }
 
-/* Hidden toggle sections */
 .toggle-content {
   max-height: 0;
   overflow: hidden;
@@ -271,7 +254,6 @@ footer p {
   padding: 20px;
 }
 
-/* Responsive font sizes */
 @media(max-width: 600px) {
   h1 { font-size: 3em; }
   .content-box { padding: 20px; }
@@ -281,15 +263,15 @@ footer p {
 </head>
 <body>
 
-<!-- Raindrops container -->
+<!-- Raindrops container (your original content) -->
 <div class="rain-container" id="rain"></div>
 
-<!-- Font toggle -->
+<!-- Font toggle button -->
 <div style="text-align: center;">
   <button class="toggle-btn" id="fontToggle">Switch Font</button>
 </div>
 
-<!-- Main content box -->
+<!-- Main content -->
 <div class="content-wrapper">
   <div class="content-box">
 
@@ -307,7 +289,7 @@ footer p {
 <!-- About Me -->
 <div id="aboutContent" class="toggle-content">
   <h2>About Me</h2>
-  <p>Details about you...</p>
+  <p>Your info here...</p>
 </div>
 
 <!-- Skills & Expertise -->
@@ -324,23 +306,23 @@ footer p {
 <!-- Projects -->
 <div id="projectsContent" class="toggle-content">
   <h2>Projects</h2>
-  <!-- Your project details here -->
+  <!-- Your project details -->
 </div>
 
 <!-- Why Work With Me -->
 <div id="whyWorkContent" class="toggle-content">
   <h2>Why Work With Me?</h2>
-  <!-- Your reasons here -->
+  <!-- Your reasons -->
 </div>
 
 <!-- Future Goals -->
 <div id="futureContent" class="toggle-content">
   <h2>Future Goals</h2>
-  <!-- Your goals here -->
+  <!-- Your goals -->
 </div>
 
-    </div> <!-- end content-box -->
-  </div> <!-- end content-wrapper -->
+    </div> <!-- end content box -->
+  </div> <!-- end content wrapper -->
 </div>
 
 <!-- Footer -->
@@ -348,7 +330,25 @@ footer p {
   <p>© 2024 WONDER</p>
 </footer>
 
+<!-- YouTube embed for music (auto-start, loop, muted, from your timestamp) -->
+<iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/48StFOF4hsQ?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=48StFOF4hsQ" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+
 <script>
+// Initialize YouTube API
+let player;
+function onYouTubeIframeAPIReady() {
+  player = new YT.Player('musicPlayer', {
+    events: {
+      'onReady': onPlayerReady,
+    }
+  });
+}
+function onPlayerReady() {
+  const startTime = 90; // your timestamp
+  player.seekTo(startTime);
+  player.playVideo();
+}
+
 // Toggle sections
 document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
@@ -364,9 +364,10 @@ document.getElementById('fontToggle').addEventListener('click', () => {
   if (fontLink.href.includes('Poppins')) {
     fontLink.href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
   } else {
-    fontLink.href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Raleway:wght@300;600&display=swap';
+    fontLink.href='https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap';
   }
 });
 </script>
+
 </body>
 </html>
