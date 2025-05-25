@@ -291,6 +291,8 @@ footer p {
   <button id="playMusicBtn" class="toggle-btn">Play Background Music</button>
 </div>
 
+<!-- Your existing content sections go here, omitted for brevity, use your previous code -->
+
 <div class="rain-container" id="rain"></div>
 
 <div style="text-align: center; margin-top: 10px;">
@@ -300,20 +302,15 @@ footer p {
 <div class="content-wrapper">
   <div class="content-box">
     <h1>WONDER</h1>
-    <!-- Buttons to toggle sections -->
-    <div style="text-align: center;">
-      <button class="toggle-btn" data-target="aboutContent">About Me</button>
-      <button class="toggle-btn" data-target="skillsContent">Skills &amp; Expertise</button>
-      <button class="toggle-btn" data-target="projectsContent">Projects</button>
-      <button class="toggle-btn" data-target="whyWorkContent">Why Work With Me?</button>
-      <button class="toggle-btn" data-target="futureContent">Future Goals</button>
-    </div>
-    <!-- Content sections omitted for brevity, same as previous -->
-    <!-- ... (your existing content sections) ... -->
+    <!-- Toggle section buttons -->
+    <!-- Your existing buttons code -->
+    <!-- ... -->
   </div>
 </div>
 
-<!-- Footer -->
+<!-- Your existing content sections -->
+
+<!-- Your footer -->
 <footer>
   <p>© 2024 WONDER</p>
 </footer>
@@ -321,7 +318,7 @@ footer p {
 <script>
 let player;
 
-// Initialize YouTube API
+// Initialize YouTube API player
 function onYouTubeIframeAPIReady() {
   player = new YT.Player('musicPlayer', {
     events: {
@@ -331,7 +328,7 @@ function onYouTubeIframeAPIReady() {
 }
 
 function onPlayerReady() {
-  // Optional: set initial seek if desired
+  // Optional: set initial position if needed
   // player.seekTo(90);
 }
 
@@ -340,7 +337,9 @@ document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
     const contentDiv = document.getElementById(targetId);
-    contentDiv.classList.toggle('show');
+    if (contentDiv) {
+      contentDiv.classList.toggle('show');
+    }
   });
 });
 
@@ -355,13 +354,13 @@ fontBtn.addEventListener('click', () => {
   }
 });
 
-// Play button handler
+// Play music button handler
 const music = document.getElementById('musicPlayer');
 const playBtn = document.getElementById('playMusicBtn');
 
 playBtn.addEventListener('click', () => {
   if (player && typeof player.seekTo === 'function' && typeof player.playVideo === 'function') {
-    const startTime = 90; // seconds, adjust if needed
+    const startTime = 90; // change to your lyrics start time in seconds
     player.seekTo(startTime);
     player.playVideo();
     playBtn.disabled = true;
@@ -369,5 +368,6 @@ playBtn.addEventListener('click', () => {
   }
 });
 </script>
+
 </body>
 </html>
