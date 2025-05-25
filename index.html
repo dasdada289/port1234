@@ -5,14 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>WONDER</title>
 
-<!-- Fonts -->
+<!-- Fonts: Use a bold, techy font for a gun/lol vibe -->
 <link id="fontLink" href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet" />
 
-<!-- Favicon -->
+<!-- Favicon: a gun icon for enhancing theme -->
 <link rel="icon" href="https://img.icons8.com/ios-filled/50/000000/gun.png" />
-
-<!-- YouTube IFrame API -->
-<script src="https://www.youtube.com/iframe_api"></script>
 
 <style>
 /* Reset and base styles */
@@ -32,6 +29,7 @@ body {
   transition: font-family 0.5s ease;
 }
 
+/* Rain container remains */
 .rain-container {
   position: fixed;
   top: 0; left: 0;
@@ -42,7 +40,7 @@ body {
   overflow: hidden;
 }
 
-/* Raindrops */
+/* Raindrops: keep as is, maybe change gradient for a darker tone */
 .raindrop {
   position: absolute;
   bottom: 100%;
@@ -55,18 +53,20 @@ body {
   animation: fall linear infinite;
   animation-duration: var(--duration);
 }
+
 @keyframes fall {
   0% { transform: translateY(0) rotate(var(--rotation)); opacity: 0.5; }
   100% { transform: translateY(110vh) rotate(var(--rotation)); opacity: 0; }
 }
 
+/* Header - "WONDER" with metallic, sharp style */
 h1 {
   font-family: 'Russo One', 'Orbitron', sans-serif;
   font-size: 4.2em;
   text-align: center;
   margin: 0 0 20px;
   padding: 50px 20px 20px;
-  color: #3A3A3A;
+  color: #3A3A3A; /* Gunmetal gray */
   letter-spacing: 4px;
   animation: glow 2s infinite alternate;
   text-shadow: 0 0 15px #3A3A3A, 2px 2px 20px rgba(0,0,0,0.8);
@@ -76,11 +76,14 @@ h1 {
   background: linear-gradient(45deg, #222, #555);
   padding: 20px;
 }
+
+/* Glow animation for header - sharper glow */
 @keyframes glow {
   0% { text-shadow: 0 0 15px #3A3A3A, 2px 2px 20px rgba(0,0,0,0.8); }
   100% { text-shadow: 0 0 25px #3A3A3A, 4px 4px 25px rgba(0,0,0,0.7); }
 }
 
+/* Content wrapper styles - darker with metallic accents */
 .content-wrapper {
   display: flex;
   justify-content: center;
@@ -90,6 +93,7 @@ h1 {
   backdrop-filter: blur(4px);
 }
 
+/* Main content box - sharper edges, metallic border, darker background */
 .content-box {
   max-width: 950px;
   width: 100%;
@@ -97,10 +101,12 @@ h1 {
   border-radius: 10px;
   padding: 30px 40px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), inset 0 0 10px rgba(255,255,255,0.3);
-  border: 2px solid #2C3E50;
+  border: 2px solid #2C3E50; /* Gunmetal border for a metallic feel */
   transition: transform 0.3s, box-shadow 0.3s, background 0.3s, border-color 0.3s;
   position: relative;
 }
+
+/* Overlay for a battle-worn, textured look */
 .content-box::before {
   content: "";
   position: absolute;
@@ -116,18 +122,21 @@ h1 {
   z-index: 0;
   border-radius: 10px;
 }
+
+/* Content above overlay */
 .content-box > * {
   position: relative;
   z-index: 1;
 }
 
+/* Section headers with metallic, sharp look and glow */
 h2 {
   font-family: 'Russo One', 'Orbitron', sans-serif;
   font-size: 2em;
   margin-bottom: 15px;
   border-bottom: 3px solid #2C3E50;
   padding-bottom: 8px;
-  color: #2C3E3A;
+  color: #2C3E50; /* Dark gray/metallic */
   position: relative;
   display: inline-block;
   text-shadow: 1px 1px 4px rgba(255,255,255,0.9);
@@ -136,12 +145,14 @@ h2 {
   background: linear-gradient(45deg, #111, #222);
   padding: 4px 8px;
 }
+
+/* Decorative line after headers - sharp and glowing */
 h2::after {
   content: "";
   display: block;
   height: 4px;
   width: 60px;
-  background-color: #4682B4;
+  background-color: #4682B4; /* Steel blue for accent */
   margin-top: 10px;
   border-radius: 2px;
   animation: pulseLine 2s infinite;
@@ -151,6 +162,7 @@ h2::after {
   50% { opacity: 0.4; }
 }
 
+/* List styles - darker with metallic accents */
 ul {
   list-style: none;
   padding: 0;
@@ -166,15 +178,16 @@ li {
   color: #ccc;
 }
 li::before {
-  content: "■";
+  content: "■"; /* sharper bullet */
   position: absolute;
   left: 0;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.5em;
-  color: #4682B4;
+  color: #4682B4; /* steel blue */
 }
 
+/* Project cards with metallic borders and hover glow */
 .project {
   background: rgba(255,255,255,0.02);
   padding: 20px;
@@ -192,21 +205,23 @@ li::before {
   font-weight: 700;
   font-size: 1.4em;
   margin-bottom: 10px;
-  color: #b0c4de;
+  color: #b0c4de; /* Light steel blue */
   text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
 }
 
+/* Links with metallic glow and hover effects */
 a {
-  color: #4682B4;
+  color: #4682B4; /* steel blue */
   text-decoration: none;
   transition: all 0.2s;
 }
 a:hover {
-  color: #6495ED;
+  color: #6495ED; /* cornflower blue */
   text-shadow: 0 0 8px #6495ED;
   transform: scale(1.02);
 }
 
+/* Footer - sharp, dark with metallic accents */
 footer {
   position: relative;
   text-align: center;
@@ -218,7 +233,7 @@ footer {
   backdrop-filter: blur(4px);
   margin-top: 50px;
   border-radius: 20px;
-  border: 2px solid #2C3E50;
+  border: 2px solid #2C3E50; /* Gunmetal border */
 }
 footer::before {
   content: "";
@@ -235,9 +250,10 @@ footer p {
   z-index: 1;
 }
 
+/* Buttons for toggle sections - aggressive, metallic style */
 .toggle-btn {
   display: inline-block;
-  background-color: #2C3E50;
+  background-color: #2C3E50; /* gunmetal gray */
   color: #fff;
   padding: 10px 20px;
   margin: 10px 0;
@@ -255,6 +271,7 @@ footer p {
   box-shadow: 0 0 20px #4682B4, inset 0 0 15px #4682B4;
 }
 
+/* Toggle content sections hidden by default, scrollable when shown */
 .toggle-content {
   max-height: 0;
   overflow: hidden;
@@ -270,6 +287,7 @@ footer p {
   overflow-y: auto;
 }
 
+/* Responsive adjustments */
 @media(max-width: 600px) {
   h1 { font-size: 3em; }
   .content-box { padding: 20px; }
@@ -279,11 +297,27 @@ footer p {
 </head>
 <body>
 
-<!-- YouTube embed set to autoplay from start -->
-<iframe id="musicPlayer" width="0" height="0" src="https://www.youtube.com/embed/48StFOF4hsQ?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=48StFOF4hsQ" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+<!-- Background music -->
+<audio id="bgMusic" autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg" />
+  Your browser does not support the audio element.
+</audio>
 
-<!-- Remove the manual music button, since autoplay now -->
-<!-- Your toggle buttons for sections -->
+<!-- Rain container -->
+<div class="rain-container" id="rain"></div>
+
+<!-- Toggle font button -->
+<div style="text-align: center; margin-top: 20px;">
+  <button class="toggle-btn" id="fontToggle">Switch Font</button>
+</div>
+
+<!-- Main Content -->
+<div class="content-wrapper">
+  <div class="content-box">
+
+    <h1>WONDER</h1>
+
+    <!-- Section Buttons -->
 <div style="text-align: center;">
   <button class="toggle-btn" data-target="aboutContent">About Me</button>
   <button class="toggle-btn" data-target="skillsContent">Skills &amp; Expertise</button>
@@ -292,22 +326,100 @@ footer p {
   <button class="toggle-btn" data-target="futureContent">Future Goals</button>
 </div>
 
-<div class="rain-container" id="rain"></div>
-
-<div style="text-align: center;">
-  <button class="toggle-btn" id="fontToggle">Switch Font</button>
+<!-- About Me -->
+<div id="aboutContent" class="toggle-content">
+  <section id="about">
+    <h2>About Me</h2>
+    <p><strong>Name:</strong> WONDER</p>
+    <p><strong>Age:</strong> 16</p>
+    <p><strong>Experience:</strong> Been Modding since July 2024</p>
+    <p><strong>Availability:</strong> IRL job but hobbyist, so I have time!</p>
+    <p><strong>Career Highlights:</strong></p>
+    <ul>
+      <li>Contributed to high-traffic projects</li>
+      <li>Mods reaching hundreds of millions of players</li>
+      <li>Worked on "Type Soul" copies</li>
+    </ul>
+    <p style="font-weight: bold; margin-top: 20px;">Note: I no longer work for the projects below.</p>
+  </section>
 </div>
 
-<div class="content-wrapper">
-  <div class="content-box" id="aboutContent">
-    <h2>About Me</h2>
-    <p>[Your About Me content]</p>
-  </div>
-  <div class="content-box" id="skillsContent" style="display:none;">
+<!-- Skills & Expertise -->
+<div id="skillsContent" class="toggle-content">
+  <section id="skills">
     <h2>Skills &amp; Expertise</h2>
-    <p>[Your Skills content]</p>
+    <ul>
+      <li>Game Modding &amp; Custom Content</li>
+      <li>Gameplay Adjustments &amp; Balancing</li>
+      <li>Community Engagement & Feedback</li>
+      <li>Game Development Passion</li>
+    </ul>
+  </section>
+</div>
+
+<!-- Projects -->
+<div id="projectsContent" class="toggle-content">
+  <section id="projects">
+    <h2>Notable Projects</h2>
+    <div class="project">
+      <div class="project-title">[Grand Alfheim] (Visits: 177K)</div>
+      <p>All-around modding (retired)</p>
+      <p><strong>Discord:</strong> <a href="https://discord.gg/aspjh6vHZj" target="_blank">Join Grand Alfheim</a></p>
+    </div>
+    <div class="project">
+      <div class="project-title">[Type Soul Clones] (2.1M Visits)</div>
+      <p>Mods for tickets, features, chat</p>
+      <p><strong>Discord:</strong></p>
+      <ul>
+        <li><a href="https://discord.com/invite/qmjyXaKUqn" target="_blank">Type War</a></li>
+        <li><a href="https://discord.gg/typecc" target="_blank">Type Ego</a></li>
+        <li><a href="https://discord.gg/ZS9W24rVs8" target="_blank">Type Rune</a></li>
+      </ul>
+    </div>
+    <div class="project">
+      <div class="project-title">Kenshin [In dev]</div>
+      <p><strong>Discord:</strong> <a href="https://discord.gg/NWJ6D895E8" target="_blank">https://discord.gg/NWJ6D895E8</a></p>
+    </div>
+    <h2>Current Projects</h2>
+    <div class="project">
+      <div class="project-title"><a href="https://discord.gg/CursedNen" target="_blank">Cursed Nen</a></div>
+      <p>Dark adventure, in dev</p>
+    </div>
+    <div class="project">
+      <div class="project-title"><a href="https://discord.gg/pbRMbuMf7S" target="_blank">Devil's Cry</a></div>
+      <p>Intense battles, in dev</p>
+    </div>
+    <p style="margin-top: 20px; font-size: 1.1em; color: #777; font-style: italic;">
+      Old discord disabled, please be considerate.
+    </p>
+  </section>
+</div>
+
+<!-- Why Work With Me -->
+<div id="whyWorkContent" class="toggle-content">
+  <section id="why-work-with-me">
+    <h2>Why Work With Me?</h2>
+    <ul>
+      <li>Passionate modder with a growing portfolio</li>
+      <li>Experience with large communities</li>
+      <li>Interested in game development</li>
+      <li>Open to collabs & investments</li>
+    </ul>
+  </section>
+</div>
+
+<!-- Future Goals -->
+<div id="futureContent" class="toggle-content">
+  <section id="future">
+    <h2>Future Goals</h2>
+    <ul>
+      <li>Learn Roblox Studio coding</li>
+      <li>Create my own game</li>
+    </ul>
+  </section>
+</div>
+
   </div>
-  <!-- Add other sections similarly, ensure IDs match data-target -->
 </div>
 
 <!-- Footer -->
@@ -316,39 +428,40 @@ footer p {
 </footer>
 
 <script>
-let player;
-
-// Initialize YouTube API
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('musicPlayer', {
-    events: {
-      'onReady': onPlayerReady,
-    }
-  });
-}
-}
-
-// Toggle sections
+// Toggle sections logic
 document.querySelectorAll('.toggle-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const targetId = btn.getAttribute('data-target');
-    // hide all sections first
-    document.querySelectorAll('.content-box').forEach(c => c.style.display='none');
-    // show the targeted section
-    const targetDiv = document.getElementById(targetId);
-    if(targetDiv) targetDiv.style.display='block';
+    const contentDiv = document.getElementById(targetId);
+    contentDiv.classList.toggle('show');
   });
-}
+});
 
 // Font toggle
-document.getElementById('fontToggle').addEventListener('click', () => {
-  const fontLink = document.getElementById('fontLink');
-  if (fontLink.href.includes('Russo+One')) {
-    fontLink.href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
+const fontBtn = document.getElementById('fontToggle');
+fontBtn.addEventListener('click', () => {
+  const currentFont = document.getElementById('fontLink').href;
+  if (currentFont.includes('Russo+One')) {
+    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap';
   } else {
-    fontLink.href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
+    document.getElementById('fontLink').href='https://fonts.googleapis.com/css2?family=Russo+One&display=swap';
+  }
+}
+
+// Fix for background music
+window.addEventListener('load', () => {
+  const music = document.getElementById('bgMusic');
+  music.volume = 0.2; // set volume
+  // To ensure autoplay works in some browsers, attempt to play again:
+  const playPromise = music.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(error => {
+      // Autoplay might be blocked, so fallback:
+      console.log('Autoplay prevented, user interaction needed to play music.');
+    });
   }
 });
 </script>
+
 </body>
 </html>
